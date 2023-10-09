@@ -1,60 +1,88 @@
 // Campeã de Streaming 
-function tira() {
-    const x = document.querySelector('#larg').value;
-    const y = document.querySelector('#comp').value;
-    const texto = document.querySelector('h4');
- 
- if (x >= 0 && x <= 432 && y >= 0 && y <= 468) { 
- texto.innerHTML = "A bolinha está dentro.";
- } 
- else {
- texto.innerHTML = "A bolinha está fora.";
+function stre() {
+var texto2 = document.querySelector('#lu');
+var resul2 = document.querySelector('#lu2');
+var botao2 = document.querySelector('#lu3');
+var num2 = 0;
+var valor2 = parseInt (document.querySelector('#valor2').value);
+          
+while(num2 < valor2){
+texto2.innerHTML = `Numero de alunos ${num2 + 1}`;
+resul2.innerHTML += (`Nome da música ${num2 + 1}: <input type="text" placeholder="Nome da música:"> número de views: <input type="number" placeholder="Número de views:"> <br>`);
+num2++;
+botao2.innerHTML =  `<button onclick="aluninho()">A campeã é...</button>`
+}
+}
+
+function aluninho() {
+var text = document.querySelector('#h6');
+var inputsMusic = document.querySelectorAll('input[type="text"]');
+var inputsViews = document.querySelectorAll('input[type="number"]');
+          
+var maiorview = -Infinity;
+var nomeMaiorview = '';
+        
+for (var i = 0; i < inputsViews.length; i++) {
+var numero2 = parseFloat(inputsViews[i].value);
+var nome2 = inputsMusic[i+1].value;
+            
+if (!isNaN(numero2) && nome2) {
+if (numero2 > maiorview) {
+maiorview= numero2;
+nomeMaiorview = nome2;
+}
+}
+}
+
+if (maiorview !== -Infinity) {
+document.getElementById("h6").innerHTML = "A música com maior views é  "  + nomeMaiorview  +  " e possui uma nota "  + maiorview;
+} else {
+document.getElementById("h6").innerHTML = ('Nenhum número válido encontrado.');
   }
  }
- 
- // Melhor Aluno
- function melhor() {
- var a = 1(document.querySelector('#alunoA').value);
- const b = parseInt(document.querySelector('#alunob').value);
- const texto = document.querySelector('h5');
- 
- while (a <= 100) {
-if (b) {
-    texto.innerHTML = "Número de alunos maior do que o permitido. Digite novamente.";
-}
- 
- }
-}
- function melhor2() {
- 
- const texto = document.querySelector('h6');
 
- while ( b ){
- texto.innerHTML = "O vice é B.";
- }
- }
- 
 
- /*
- // Zerinho ou Um
- function zerinho(){
-    const a = parseInt(document.querySelector('#a').value);
-    const b = parseInt(document.querySelector('#b').value);
-    const c = parseInt(document.querySelector('#c').value);
-    const texto = document.querySelector('h6');
- 
- 
- if ((a != b) && (a != c)) {
-    texto.innerHTML = 'A';
+
+
+// Melhor Aluno
+function melhor() {
+var texto = document.querySelector('#teste');
+var resul = document.querySelector('#teste2');
+var botao = document.querySelector('#teste3');
+var num = 0;
+var valor = document.querySelector('#valor').value;
+          
+while(num < valor){
+texto.innerHTML = `Numero de alunos ${num + 1}`;
+resul.innerHTML += (`Informe o nome do aluno ${num + 1}: <input type="text" placeholder="Nome do aluno"> Nota do aluno: <input type="number" placeholder="Digite o numero da nota"> <br>`);
+num++;
+botao.innerHTML =  `<button onclick="aluno()">Maior nota é...</button>`
+}
+}
+
+function aluno() {
+var text = document.querySelector('#h5');
+var inputsNome = document.querySelectorAll('input[type="text"]');
+var inputsNumero = document.querySelectorAll('input[type="number"]');
+          
+var maiorNumero = -Infinity;
+var nomeMaiorNumero = '';
+        
+for (var i = 0; i < inputsNumero.length; i++) {
+var numero = parseFloat(inputsNumero[i].value);
+var nome = inputsNome[i+1].value;
+            
+if (!isNaN(numero) && nome) {
+if (numero > maiorNumero) {
+maiorNumero = numero;
+nomeMaiorNumero = nome;
+}
+}
+}
+
+if (maiorNumero !== -Infinity) {
+document.getElementById("h5").innerHTML = "O aluno(a) com maior nota é " + nomeMaiorNumero + " e possui uma nota "  + maiorNumero;
+} else {
+document.getElementById("h5").innerHTML = ('Nenhum número válido encontrado.');
+  }
  }
- else if ((b != a) && (b != c)) {
-    texto.innerHTML = 'B';
- }
- else if ((c != a) && (c != b)) {
-    texto.innerHTML = 'C';
- }
- else {
-    texto.innerHTML = '*';
- }
- }
- */
